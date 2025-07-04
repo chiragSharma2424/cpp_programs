@@ -30,6 +30,41 @@ int sumOfArray(int arr[], int size) {
     }
     return sum;
 }
+
+// not using INT_MIN basic approach
+int findMax(int arr[], int size) {
+    int max = arr[0];
+    for(int i = 0; i < size; i++) {
+        if(max < arr[i]) {
+            max = arr[i];
+        }
+    }
+    return max;
+}
+
+int findMin(int *arr, int size) {
+    int min = arr[0];
+    for(int i = 0; i < size; i++) {
+        if(min > arr[i]) {
+            min = arr[i];
+        }
+    }
+    return min;
+}
+
+void reverseArray(int arr[], int size) {
+    int start = 0;
+    int end = size - 1;
+
+    for(int i = 0; start <= end; i++) {
+        swap(arr[start], arr[end]);
+        start++;
+        end--;
+    }
+    // calling the reverse function
+    printArray(arr, size);
+}
+
 int main() {
     int size;
     cout << "Enter size of array: ";
@@ -39,6 +74,11 @@ int main() {
     printArray(arr, size);
     printAllAddresses(arr, size);
     int ans = sumOfArray(arr, size);
-    cout << "sum of array is: " << ans;
+    cout << "sum of array is: " << ans << endl;
+    int max = findMax(arr, size);
+    cout << "Maximum element is: " << max << endl;
+    int min = findMin(arr, size);
+    cout << "minimum element is: " << min << endl;
+    reverseArray(arr, size);
     return 0;
 }
