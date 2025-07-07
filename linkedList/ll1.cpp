@@ -22,6 +22,14 @@ void displayReverse(Node *head) {
     displayReverse(head -> next);
     cout << head -> val << " <- ";
 }
+
+void insertAtEnd(Node *&head, int val) {
+    Node *tail = head;
+    while(tail != nullptr) tail = tail -> next;
+    Node *temp = new Node(val);
+    tail -> next = temp;
+    tail = tail -> next;
+}
 int main() {
     // Node a(10);
     // Node b(20);
@@ -59,8 +67,8 @@ int main() {
         temp = temp -> next;
     }
     cout << endl;
-    displayLL(a); 
-    cout << endl;
-    displayReverse(a);
+    displayLL(a);
+    insertAtEnd(a, 34);
+    displayLL(temp);
     return 0;
 }

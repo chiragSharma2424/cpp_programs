@@ -38,6 +38,17 @@ public:
         size++;
     }
 
+    // if there is no node size = 0 so temp he head hoga or tail hoga
+    void insertAtHead(int val) {
+       Node *temp = new Node(val);
+       if(size == 0) head = tail = temp;
+       else {
+        temp -> next = head;
+        head = temp;
+       }
+       size++;
+    }
+
     void display() {
         Node *temp = head;
         while(temp != nullptr) {
@@ -54,6 +65,12 @@ int main() {
     ll.isertAtEnd(10);
     ll.display();
     ll.isertAtEnd(20);
+    ll.display();
+    ll.isertAtEnd(30);
+    ll.isertAtEnd(40);
+    ll.display();
+    cout << ll.size << endl;
+    ll.insertAtHead(24);
     ll.display();
     return 0;
 }
