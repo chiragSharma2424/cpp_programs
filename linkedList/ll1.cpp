@@ -10,6 +10,18 @@ public:
         this -> next = nullptr;
     }
 };
+
+void displayLL(Node *head) {
+    if(head == nullptr) return;
+    cout << head -> val << " -> ";
+    displayLL(head -> next);
+}
+
+void displayReverse(Node *head) {
+    if(head == nullptr) return;
+    displayReverse(head -> next);
+    cout << head -> val << " <- ";
+}
 int main() {
     // Node a(10);
     // Node b(20);
@@ -47,5 +59,8 @@ int main() {
         temp = temp -> next;
     }
     cout << endl;
+    displayLL(a); 
+    cout << endl;
+    displayReverse(a);
     return 0;
 }
