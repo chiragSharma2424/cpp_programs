@@ -42,6 +42,33 @@ void sort01twoPointer(vector<int> &arr) {
         }
     }
 }
+
+void sortNegativeNumbers(vector<int> &arr) {
+    int start = 0;
+    int end = arr.size() - 1;
+    for(int i = 0; start <= end; i++) {
+    if(arr[start] < 0) start++;
+    if(arr[end] > 0) end--;
+    else {
+        swap(arr[start], arr[end]);
+        start++;
+        end--;
+       }
+    }
+}
+
+void printVector(vector<int> &arr) {
+    cout << "printing vector: " << endl;
+    for(int i = 0; i < arr.size(); i++) {
+        cout << arr[i] << " ";
+    }
+        cout << endl;
+}
+
+// this is leetocode 75 question
+void sortColors(vector<int> &arr) {
+
+}
 int main() {
     // vector<int> v = {4, 1, 7, 2, 3};
     // cout << "printing the vector: " << endl;
@@ -56,21 +83,32 @@ int main() {
 
 
     vector<int> arr;
-    arr.push_back(1);
-    arr.push_back(1);
-    arr.push_back(0);
-    arr.push_back(0);
-    arr.push_back(1);
-    arr.push_back(1);
-    arr.push_back(0);
-    arr.push_back(1);
-    for(int i = 0; i < arr.size(); i++) {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
-    sort01twoPointer(arr);
-    for(int i = 0; i < arr.size(); i++) {
-        cout << arr[i] << " ";
-    }
+    // arr.push_back(1);
+    // arr.push_back(1);
+    // arr.push_back(0);
+    // arr.push_back(0);
+    // arr.push_back(1);
+    // arr.push_back(1);
+    // arr.push_back(0);
+    // arr.push_back(1);
+    // for(int i = 0; i < arr.size(); i++) {
+    //     cout << arr[i] << " ";
+    // }
+    // cout << endl;
+    // sort01twoPointer(arr);
+    // for(int i = 0; i < arr.size(); i++) {
+    //     cout << arr[i] << " ";
+    // }
+
+
+
+    // arr.push_back(8);
+    // arr.push_back(-3);
+    // arr.push_back(-2);
+    // arr.push_back(-4);
+    // arr.push_back(5);
+    // printVector(arr);
+    // sortNegativeNumbers(arr);
+    // printVector(arr);
     return 0;
 }
