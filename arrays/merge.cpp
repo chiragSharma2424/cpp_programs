@@ -26,5 +26,6 @@ int main() {
     vector<int> arr = {6, 1, 4, 3, 1, 7};
     int ans = mergeOp(arr);
     cout << "operations are: " << ans << endl;
+    cout << "hello world";
     return 0;
 }
