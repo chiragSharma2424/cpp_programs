@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="getSomeData()">Get</button>
+
+    <script>
+        function getSomeData() {
+            var url = 'https://fakestoreapi.com/products';
+            fetch(url, {method: "GET"}).then((resp) => {
+                return resp.json()
+            }).then((data) => {
+                console.log(data);
+            }).catch((err) => {
+                console.log('error', err);
+            })
+        }
+    </script>
+</body>
+</html>
