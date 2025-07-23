@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 using namespace std;
 bool linearSearch(int arr[], int size, int key) {
     for(int i = 0; i < size; i++) {
@@ -56,30 +57,54 @@ bool pairSum(int arr[], int size, int target, int &idx1, int &idx2) {
     }
     return false;
 }
-int main() {
-    int size;
-    cout << "enter size of array: ";
-    cin >> size;
-    int *arr = new int[size];
-    inputArray(arr, size);
-    printArray(arr, size);
-    if(linearSearch(arr, size, 24)) {
-        cout << "element is present";
-    } else {
-        cout << "element is not present";
-    }
-    int ans = linearSearch2(arr, size, 24);
-    cout << "element is present at index: " << ans << endl;
-    shiftToRight(arr, size, 24);
-    printArray(arr, size);
-    insertLast(arr, size, 100);
-    printArray(arr, size);
 
-    int index1, index2;
-    if(pairSum(arr, size, 10, index1, index2)) {
-        cout << "index are: " << index1 << " " << index2 << endl;
-    } else {
-        cout << "pair not found" << endl;
+void maxi(int arr[], int size) {
+    int freq[10] = {0};
+
+    for(int i = 0; i < size; i++) {
+        int num = arr[i];
+        while(num > 0) {
+            freq[num % 10]++;
+            num = num / 10;
+        }
     }
+
+    for(int i = 9; i >= 0; i--) {
+        while(freq[i] > 0) {
+            cout << i;
+            freq[i]--;
+        }
+    }
+}
+int main() {
+    // int size;
+    // cout << "enter size of array: ";
+    // cin >> size;
+    // int *arr = new int[size];
+    // inputArray(arr, size);
+    // printArray(arr, size);
+    // if(linearSearch(arr, size, 24)) {
+    //     cout << "element is present";
+    // } else {
+    //     cout << "element is not present";
+    // }
+    // int ans = linearSearch2(arr, size, 24);
+    // cout << "element is present at index: " << ans << endl;
+    // shiftToRight(arr, size, 24);
+    // printArray(arr, size);
+    // insertLast(arr, size, 100);
+    // printArray(arr, size);
+
+    // int index1, index2;
+    // if(pairSum(arr, size, 10, index1, index2)) {
+    //     cout << "index are: " << index1 << " " << index2 << endl;
+    // } else {
+    //     cout << "pair not found" << endl;
+    // }
+
+
+
+    int arr[10] = {78, 92, 43, 9, 10 };
+    maxi(arr, 10);
     return 0;
 }

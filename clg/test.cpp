@@ -17,7 +17,28 @@ int main() {
     // getline(cin, name);
     // cout << rnum;
     // cout << name;
-    int ans = countSpaces("hello world from       coders");
-    cout << ans << endl;
-    return 0;
+    // int ans = countSpaces("hello world from       coders");
+    // cout << ans << endl;
+
+
+    // int num = 78 / 10;
+    // cout << num << endl;
+
+    // int num2 = 24 / 10;
+    // cout << num2;
+
+
+    // int num = 56;
+    // int ans = num % 10;
+    // int ans2 = num / 10;
+    // cout << num << endl;
+    // cout << ans << endl;
+    // cout << ans2 << endl;
+
+    float num = 78;
+    while(num > 0) {
+       num = num / 10;
+    }
+    cout << num << endl;
+
 }
