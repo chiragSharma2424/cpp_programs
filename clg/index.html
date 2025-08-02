@@ -9,18 +9,18 @@
     <button onclick="getSomeData()">Get</button>
     <div id="display"></div>
     <script>
+        const parent = document.getElementById('display');
         function getSomeData() {
-            var url = 'https://fakestoreapi.com/products';
-            fetch(url, {method: "GET"}).then((resp) => {
-                return resp.json()
+            fetch('https://fakestoreapi.com/products').then((resp) => {
+                return resp.json();
             }).then((data) => {
                 console.log(data);
                 var parent = document.getElementById('display');
-                var newDiv = document.createElement('div');
-                newDiv.innerHTML = JSON.stringify(data[0]);
-                parent.appendChild(newDiv);
-            }).catch((err) => {
-                console.log('error', err);
+                for(var i = 0; i < data.length; i++) {
+                    var newdiv = document.createElement('div');
+                    newdiv.innerHTML = JSON.stringify(data[i].title);
+                    parent.appendChild(newdiv);
+                }
             })
         }
     </script>
