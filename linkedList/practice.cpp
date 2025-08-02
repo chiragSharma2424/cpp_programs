@@ -32,7 +32,7 @@ void printLL(Node *head) {
     cout << endl;
 }
 int main() {
-    vector<int> arr = {24, 4, 5, 9, 0};
+    vector<int> arr = {24, 4, 5, 9, 3};
     Node *head = array2ll(arr);
     printLL(head);
     return 0;
