@@ -18,10 +18,18 @@
                 var parent = document.getElementById('display');
                 for(var i = 0; i < data.length; i++) {
                     var newdiv = document.createElement('div');
+                    var newdiv2 = document.createElement('div');
+                    var newdiv3 = document.createElement('div');
+
+                    newdiv2.innerHTML = JSON.stringify(data[i].id);
                     newdiv.innerHTML = JSON.stringify(data[i].title);
+                    newdiv3.innerHTML = JSON.stringify(data[i].price);
+
                     parent.appendChild(newdiv);
+                    parent.appendChild(newdiv2);
+                    parent.appendChild(newdiv3);
                 }
-            })
+            });
         }
     </script>
 </body>
