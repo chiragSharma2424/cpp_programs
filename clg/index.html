@@ -4,6 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+         body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding: 20px;
+        background-color: #f0f4f8;
+    }
+
+    button {
+        padding: 10px 25px;
+        font-size: 16px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-bottom: 20px;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    #display {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .product-card {
+        background: linear-gradient(135deg, #ffffff, #e3e9f3);
+        border: 1px solid #d0d0d0;
+        padding: 15px 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .product-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .product-card h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .product-card p {
+        margin: 5px 0;
+        color: #555;
+    }
+
+    .product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+    </style>
 </head>
 <body>
     <button onclick="getSomeData()">Get</button>
@@ -16,18 +78,32 @@
             }).then((data) => {
                 console.log(data);
                 var parent = document.getElementById('display');
+
                 for(var i = 0; i < data.length; i++) {
-                    var newdiv = document.createElement('div');
-                    var newdiv2 = document.createElement('div');
-                    var newdiv3 = document.createElement('div');
+                    var card = document.createElement('div');
+                    card.classList.add('product-card');
 
-                    newdiv2.innerHTML = JSON.stringify(data[i].id);
-                    newdiv.innerHTML = JSON.stringify(data[i].title);
-                    newdiv3.innerHTML = JSON.stringify(data[i].price);
+                    // image
+                    var img = document.createElement('img');
+                    img.src = data[i].image;
+                    img.alt = data[i].title;
+                    img.classList.add('product-image');
 
-                    parent.appendChild(newdiv);
-                    parent.appendChild(newdiv2);
-                    parent.appendChild(newdiv3);
+                    var title = document.createElement('h3');
+                    title.textContent = data[i].title;
+
+                    var id = document.createElement('p');
+                    id.textContent = `ID: ${data[i].id}`
+
+                    var price = document.createElement('p');
+                    price.textContent = `Price: ${data[i].price}`;
+
+                    card.appendChild(img);
+                    card.appendChild(title);
+                    card.appendChild(id);
+                    card.appendChild(price);
+
+                    parent.appendChild(card);
                 }
             });
         }
