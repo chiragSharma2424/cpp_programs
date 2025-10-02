@@ -55,6 +55,23 @@ void reverseManualSwap(int arr[], int size) {
     }
     printArray(arr, size);
 }
+
+int binSearch(int arr[], int size, int key) {
+    int start = 0;
+    int end = size - 1;
+
+    while(start <= end) {
+        int mid = (start + end) / 2;
+        if(arr[mid] == key) {
+            return mid;
+        } else if(key > arr[mid]) {
+            start = mid + 1;
+        } else if(key < arr[mid]) {
+            end = mid - 1;
+        }
+    }
+    return -1;
+}
 int main() {
     int size;
     cout << "Enter size of array: ";
@@ -66,8 +83,7 @@ int main() {
     printArray(arr, size);
     int ans = largest(arr, size);
     cout << "Max element is: " << ans << endl;
-    int ans2 = linearSearch(arr, size, 24);
+    int ans2 = binSearch(arr, size, 24);
     cout << "Key present at index: " << ans2 << endl;
-    reverseManualSwap(arr, size);
     return 0;
 }
