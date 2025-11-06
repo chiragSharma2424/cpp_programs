@@ -1,4 +1,5 @@
 #include<iostream>
+#include<math.h>
 using namespace std;
 // this is tree node
 class Node {
@@ -36,10 +37,23 @@ int sum(Node *root) {
     return ans;
 }
 
+int product(Node *root) {
+    if(root == nullptr) return 0;
+    int ans = root -> val + product(root -> left) * product(root -> right);
+    return ans;
+}
+
 int sizeOfTree(Node *root) {
     if(root == nullptr) return 0;
-    return 
+    return 1 + sizeOfTree(root -> left) + sizeOfTree(root -> right);
 }
+
+// int findMaxNode(Node *root) {
+//     if(root == nullptr) return 0;
+//     return max(root -> val, max(root ->left), max(root -> right));
+// }
+
+
 int main() {
     Node *a = new Node(1);
     Node *b = new Node(2);
@@ -63,6 +77,8 @@ int main() {
     cout << endl;
     displayTree2(a);
     cout << endl;
-    cout << sum(a);
+    cout << "sum of tree is: " << sum(a) << endl;
+    cout << "size of tree is: " << sizeOfTree(a) << endl;
+    cout << "product of tree is: " << product(a) << endl;
     return 0;
 }
